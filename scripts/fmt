@@ -1,0 +1,7 @@
+#!/bin/sh
+
+if [ -z $MSYSTEM ]; then
+  rg --files src | xargs clang-format -i
+else
+  rg --path-separator '//' --files src | xargs clang-format -i
+fi
