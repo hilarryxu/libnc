@@ -13,7 +13,7 @@ workspace "sln-nc"
      defines { "NDEBUG" }
      optimize "On"
 
-  project "nev"
+  project "nc"
     kind "StaticLib"
     language "C"
     files {
@@ -26,3 +26,23 @@ workspace "sln-nc"
     filter { "system:windows", "toolset:gcc" }
       defines { "CRT_MINGW", "MINGW_HAS_SECURE_API", "_POSIX_C_SOURCE" }
       buildoptions { }
+
+  project "test"
+    kind "ConsoleApp"
+    language "C"
+
+    files {
+      "tests/*.c",
+    }
+    includedirs {
+      "src",
+      "tests",
+    }
+    libdirs {
+      "builddir",
+    }
+
+    filter "system:windows"
+      defines { "CRT_MINGW", "MINGW_HAS_SECURE_API", "_POSIX_C_SOURCE" }
+      links { "nc" }
+      linkoptions { "-Wall" }
