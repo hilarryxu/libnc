@@ -8,7 +8,7 @@
 #ifndef LIBNC_NC_HASHTABLE_H_
 #define LIBNC_NC_HASHTABLE_H_
 
-#include <stddef.h> // size_t
+#include <stddef.h>  // size_t
 
 typedef size_t (*nc_hashtable_key_hash_pt)(const void *key);
 typedef int (*nc_hashtable_key_cmp_pt)(const void *key1, const void *key2);
@@ -211,4 +211,4 @@ void *nc_hashtable_iter_value(void *iter);
 void nc_hashtable_iter_set(struct nc_hashtable *hashtable, void *iter,
                            void *value);
 
-#endif // LIBNC_NC_HASHTABLE_H_
+#endif  // LIBNC_NC_HASHTABLE_H_

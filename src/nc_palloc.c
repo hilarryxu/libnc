@@ -1,6 +1,6 @@
 #include "nc_palloc.h"
 
-#include <string.h> // memset
+#include <string.h>  // memset
 
 static inline void *nc_palloc_small(struct nc_pool *pool, size_t size,
                                     int align);

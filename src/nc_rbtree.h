@@ -31,4 +31,4 @@ struct nc_rbnode *nc_rbtree_min(struct nc_rbtree *tree);
 void nc_rbtree_insert(struct nc_rbtree *tree, struct nc_rbnode *node);
 void nc_rbtree_delete(struct nc_rbtree *tree, struct nc_rbnode *node);
 
-#endif // LIBNC_NC_RBTREE_H_
+#endif  // LIBNC_NC_RBTREE_H_

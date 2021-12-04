@@ -8,7 +8,7 @@ typedef struct hashtable_list list_t;
 typedef struct hashtable_pair pair_t;
 typedef struct hashtable_bucket bucket_t;
 
-#define container_of(ptr_, type_, member_)                                     \
+#define container_of(ptr_, type_, member_) \
   ((type_ *)((char *)ptr_ - offsetof(type_, member_)))
 
 #define list_to_pair(list_) container_of(list_, pair_t, list)

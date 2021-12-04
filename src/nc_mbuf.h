@@ -8,12 +8,12 @@
 #include "nc_sys_queue.h"
 
 struct nc_mbuf {
-  uint32_t magic;             // mbuf magic (const)
-  STAILQ_ENTRY(nc_mbuf) next; // next mbuf
-  u_char *pos;                // read marker
-  u_char *last;               // write marker
-  u_char *start;              // start of buffer (const)
-  u_char *end;                // end of buffer (const)
+  uint32_t magic;              // mbuf magic (const)
+  STAILQ_ENTRY(nc_mbuf) next;  // next mbuf
+  u_char *pos;                 // read marker
+  u_char *last;                // write marker
+  u_char *start;               // start of buffer (const)
+  u_char *end;                 // end of buffer (const)
 };
 
 STAILQ_HEAD(nc_mhdr, nc_mbuf);
@@ -82,4 +82,4 @@ void nc_mbuf_memcopy(struct nc_mbuf *mbuf, u_char *pos, size_t n);
 struct nc_mbuf *mbuf_split(struct nc_mbuf_head *head, uint8_t *pos,
                            nc_mbuf_copy_pt cb, void *cb_arg);
 
-#endif // LIBNC_NC_MBUF_H_
+#endif  // LIBNC_NC_MBUF_H_

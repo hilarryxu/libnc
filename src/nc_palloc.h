@@ -13,8 +13,8 @@ struct nc_pool_large;
 #define NC_DEFAULT_POOL_SIZE (16 * 1024)
 
 #define NC_POOL_ALIGNMENT 16
-#define NC_MIN_POOL_SIZE                                                       \
-  nc_align((sizeof(struct nc_pool) + 2 * sizeof(struct nc_pool_large)),        \
+#define NC_MIN_POOL_SIZE                                                \
+  nc_align((sizeof(struct nc_pool) + 2 * sizeof(struct nc_pool_large)), \
            NC_POOL_ALIGNMENT)
 
 struct nc_pool_large {
@@ -57,4 +57,4 @@ int nc_pfree(struct nc_pool *pool, void *p);
 
 struct nc_pool_cleanup *nc_pool_cleanup_add(struct nc_pool *p, size_t size);
 
-#endif // LIBNC_NC_PALLOC_H_
+#endif  // LIBNC_NC_PALLOC_H_

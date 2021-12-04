@@ -1,7 +1,7 @@
 #ifndef LIBNC_NC_MACROS_H_
 #define LIBNC_NC_MACROS_H_
 
-#include <stddef.h> // size_t
+#include <stddef.h>  // size_t
 
 typedef unsigned char u_char;
 
@@ -29,7 +29,7 @@ typedef unsigned char u_char;
 // Make data 'd' or pointer 'p', n-byte aligned, where n is a power of 2.
 #define NC_ALIGNMENT sizeof(unsigned long) /* platform word */
 #define NC_ALIGN(d, n) (((d) + (n - 1)) & ~(n - 1))
-#define NC_ALIGN_PTR(p, n)                                                     \
+#define NC_ALIGN_PTR(p, n) \
   (void *)(((uintptr_t)(p) + ((uintptr_t)n - 1)) & ~((uintptr_t)n - 1))
 
 #define NC_OK 0
@@ -44,15 +44,15 @@ typedef unsigned char u_char;
 
 #define nc_zalloc(_s) _nc_zalloc((size_t)(_s), __FILE__, __LINE__)
 
-#define nc_calloc(_n, _s)                                                      \
+#define nc_calloc(_n, _s) \
   _nc_calloc((size_t)(_n), (size_t)(_s), __FILE__, __LINE__)
 
 #define nc_realloc(_p, _s) _nc_realloc(_p, (size_t)(_s), __FILE__, __LINE__)
 
-#define nc_free(_p)                                                            \
-  do {                                                                         \
-    _nc_free(_p, __FILE__, __LINE__);                                          \
-    (_p) = NULL;                                                               \
+#define nc_free(_p)                   \
+  do {                                \
+    _nc_free(_p, __FILE__, __LINE__); \
+    (_p) = NULL;                      \
   } while (0)
 
 void *_nc_alloc(size_t size, const char *name, int line);
@@ -90,22 +90,22 @@ void *nc_memalign(size_t alignment, size_t size);
 //
 #ifdef NC_ASSERT_PANIC
 
-#define ASSERT(_x)                                                             \
-  do {                                                                         \
-    if (!(_x)) {                                                               \
-      nc_assert(#_x, __FILE__, __LINE__, 1);                                   \
-    }                                                                          \
+#define ASSERT(_x)                           \
+  do {                                       \
+    if (!(_x)) {                             \
+      nc_assert(#_x, __FILE__, __LINE__, 1); \
+    }                                        \
   } while (0)
 
 #define NOT_REACHED() ASSERT(0)
 
 #elif NC_ASSERT_LOG
 
-#define ASSERT(_x)                                                             \
-  do {                                                                         \
-    if (!(_x)) {                                                               \
-      nc_assert(#_x, __FILE__, __LINE__, 0);                                   \
-    }                                                                          \
+#define ASSERT(_x)                           \
+  do {                                       \
+    if (!(_x)) {                             \
+      nc_assert(#_x, __FILE__, __LINE__, 0); \
+    }                                        \
   } while (0)
 
 #define NOT_REACHED() ASSERT(0)
@@ -116,8 +116,8 @@ void *nc_memalign(size_t alignment, size_t size);
 
 #define NOT_REACHED()
 
-#endif // ASSERT
+#endif  // ASSERT
 
 void nc_assert(const char *cond, const char *file, int line, int panic);
 
-#endif // LIBNC_NC_MACROS_H_
+#endif  // LIBNC_NC_MACROS_H_

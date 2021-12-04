@@ -123,7 +123,6 @@ nc_rbtree_insert(struct nc_rbtree *tree, struct nc_rbnode *node)
 
   temp = *root;
   for (;;) {
-
     p = (node->key < temp->key) ? &temp->left : &temp->right;
     if (*p == sentinel) {
       break;
@@ -140,7 +139,6 @@ nc_rbtree_insert(struct nc_rbtree *tree, struct nc_rbnode *node)
   /* re-balance tree */
 
   while (node != *root && rbtree_is_red(node->parent)) {
-
     if (node->parent == node->parent->parent->left) {
       temp = node->parent->parent->right;
 
@@ -224,7 +222,6 @@ nc_rbtree_delete(struct nc_rbtree *tree, struct nc_rbnode *node)
   if (subst == node) {
     temp->parent = subst->parent;
   } else {
-
     if (subst->parent == node) {
       temp->parent = subst;
     } else {
@@ -264,7 +261,6 @@ nc_rbtree_delete(struct nc_rbtree *tree, struct nc_rbnode *node)
   /* a delete fixup */
 
   while (temp != *root && rbtree_is_black(temp)) {
-
     if (temp == temp->parent->left) {
       w = temp->parent->right;
 

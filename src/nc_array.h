@@ -32,4 +32,4 @@ nc_array_init(struct nc_array *array, int n, size_t size)
   return NC_OK;
 }
 
-#endif // LIBNC_NC_ARRAY_H_
+#endif  // LIBNC_NC_ARRAY_H_
