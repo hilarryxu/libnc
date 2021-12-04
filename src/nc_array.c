@@ -7,7 +7,7 @@ nc_array_create(int n, size_t size)
 {
   struct nc_array *a;
 
-  ASSERT(n != 0 && size != 0);
+  NC_ASSERT(n != 0 && size != 0);
 
   a = nc_alloc(sizeof(*a));
   if (a == NULL) {

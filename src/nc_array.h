@@ -18,7 +18,7 @@ void *nc_array_push_n(struct nc_array *a, int n);
 static inline int
 nc_array_init(struct nc_array *array, int n, size_t size)
 {
-  ASSERT(n != 0 && size != 0);
+  NC_ASSERT(n != 0 && size != 0);
 
   array->elems = nc_alloc(n * size);
   if (array->elems == NULL) {

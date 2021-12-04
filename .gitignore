@@ -40,6 +40,8 @@
 *.sln
 
 
+tags
+\.tags
 /Makefile
 /*.make
 

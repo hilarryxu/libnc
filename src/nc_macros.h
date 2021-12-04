@@ -90,33 +90,33 @@ void *nc_memalign(size_t alignment, size_t size);
 //
 #ifdef NC_ASSERT_PANIC
 
-#define ASSERT(_x)                           \
+#define NC_ASSERT(_x)                           \
   do {                                       \
     if (!(_x)) {                             \
       nc_assert(#_x, __FILE__, __LINE__, 1); \
     }                                        \
   } while (0)
 
-#define NOT_REACHED() ASSERT(0)
+#define NOT_REACHED() NC_ASSERT(0)
 
 #elif NC_ASSERT_LOG
 
-#define ASSERT(_x)                           \
+#define NC_ASSERT(_x)                           \
   do {                                       \
     if (!(_x)) {                             \
       nc_assert(#_x, __FILE__, __LINE__, 0); \
     }                                        \
   } while (0)
 
-#define NOT_REACHED() ASSERT(0)
+#define NOT_REACHED() NC_ASSERT(0)
 
 #else
 
-#define ASSERT(_x)
+#define NC_ASSERT(_x)
 
 #define NOT_REACHED()
 
-#endif  // ASSERT
+#endif  // NC_ASSERT
 
 void nc_assert(const char *cond, const char *file, int line, int panic);
 

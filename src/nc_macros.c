@@ -8,7 +8,7 @@ _nc_alloc(size_t size, const char *name, int line)
 {
   void *p;
 
-  ASSERT(size != 0);
+  NC_ASSERT(size != 0);
 
   p = malloc(size);
   if (p == NULL) {
@@ -44,7 +44,7 @@ _nc_realloc(void *ptr, size_t size, const char *name, int line)
 {
   void *p;
 
-  ASSERT(size != 0);
+  NC_ASSERT(size != 0);
 
   p = realloc(ptr, size);
   if (p == NULL) {
@@ -59,7 +59,7 @@ _nc_realloc(void *ptr, size_t size, const char *name, int line)
 void
 _nc_free(void *ptr, const char *name, int line)
 {
-  ASSERT(ptr != NULL);
+  NC_ASSERT(ptr != NULL);
   log_debug(LOG_VVERB, "free(%p) @ %s:%d", ptr, name, line);
   free(ptr);
 }
